@@ -4,9 +4,7 @@ import { Categories } from "../components/categories/Categories";
 import { Welcome } from "../components/welcome/Welcome";
 
 export const ApplicationViews = () => {
-    const [currentUser, setCurrentUser] = useState({});
-
-    return (
+      return (
         <Routes>
             <Route path="/"
                 element={
