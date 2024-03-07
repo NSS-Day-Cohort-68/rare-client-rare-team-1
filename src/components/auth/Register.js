@@ -1,20 +1,26 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { register_user } from "../../managers/userManager"
 
 export const Register = () => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     username: "",
     email: "",
   })
+  // not sure if we need this newToken state
+  const [newToken, setNewToken] = useState({})
 
   const handleInputChange = (event) => {
     const formDataCopy = { ...formData }
     if (event.target.id === "first-name-input") {
-      formDataCopy.firstName = event.target.value
+      formDataCopy.first_name = event.target.value
     }
     if (event.target.id === "last-name-input") {
-      formDataCopy.lastName = event.target.value
+      formDataCopy.last_name = event.target.value
     }
     if (event.target.id === "username-input") {
       formDataCopy.username = event.target.value
@@ -27,6 +33,25 @@ export const Register = () => {
 
   const handleRegister = (event) => {
     event.preventDefault()
+    const userCopy = { ...formData }
+
+    const expectedKeys = ["first_name", "last_name", "username", "email"]
+
+    const missingValues = []
+    expectedKeys.forEach((key) => {
+      if (userCopy[key] === "") {
+        missingValues.push(key)
+      }
+    })
+
+    if (missingValues.length !== 0) {
+      window.alert("Please fill out all fields before clicking Register.")
+    } else {
+      register_user(userCopy).then((res) => {
+        setNewToken(res)
+        navigate("/")
+      })
+    }
   }
 
   return (
@@ -39,7 +64,7 @@ export const Register = () => {
             className="form-input"
             type="text"
             id="first-name-input"
-            value={formData.firstName ? formData.firstName : ""}
+            value={formData.first_name ? formData.first_name : ""}
             onChange={handleInputChange}
           />
         </fieldset>
@@ -49,7 +74,7 @@ export const Register = () => {
             className="form-input"
             type="text"
             id="last-name-input"
-            value={formData.lastName ? formData.lastName : ""}
+            value={formData.last_name ? formData.last_name : ""}
             onChange={handleInputChange}
           />
         </fieldset>
