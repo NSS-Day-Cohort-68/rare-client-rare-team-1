@@ -11,8 +11,6 @@ export const Register = () => {
     username: "",
     email: "",
   })
-  // not sure if we need this newToken state
-  const [newToken, setNewToken] = useState({})
 
   const handleInputChange = (event) => {
     const formDataCopy = { ...formData }
@@ -47,8 +45,7 @@ export const Register = () => {
     if (missingValues.length !== 0) {
       window.alert("Please fill out all fields before clicking Register.")
     } else {
-      register_user(userCopy).then((res) => {
-        setNewToken(res)
+      register_user(userCopy).then(() => {
         navigate("/")
       })
     }
