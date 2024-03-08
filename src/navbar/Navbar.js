@@ -9,6 +9,7 @@ export const Navbar = () => {
             </li>
             <li className="navbar-item">
                 <Link to="/categories">Categories</Link>
+                <br></br>
             </li>
         </ul>
     )
