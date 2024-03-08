@@ -1,9 +1,10 @@
 import "./App.css"
 import { Routes, Route } from "react-router-dom"
 import { Login } from "./components/auth/Login"
-import { Authorized } from "./views/Authorized"
-import { ApplicationViews } from "./views/ApplicationViews"
-import { Navbar } from "./navbar/Navbar"
+import { Register } from "./components/auth/Register"
+import { Navbar } from "./navbar/Navbar";
+import { Authorized } from "./views/Authorized";
+import { ApplicationViews } from "./views/ApplicationViews";
 
 export const App = () => {
   return (
@@ -11,7 +12,7 @@ export const App = () => {
     <Navbar />
     <Routes>
       <Route path="/login" element={<Login />} />
-
+      <Route path="/register" element={<Register />} />
       <Route path="*" element={
         <Authorized>
           <ApplicationViews />
@@ -20,3 +21,4 @@ export const App = () => {
     </Routes> </>
   );
 };
+      
