@@ -49,7 +49,7 @@ export const Register = () => {
       window.alert("Please fill out all fields before clicking Register.")
     } else {
       check_for_duplicate_email(userCopy["email"]).then((result) => {
-        if (result["valid"] === false) {
+        if (result["email_exists"] === false) {
           register_user(userCopy).then(() => {
             navigate("/")
           })
