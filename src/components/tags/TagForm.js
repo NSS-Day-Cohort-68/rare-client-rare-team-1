@@ -16,8 +16,12 @@ export const NewTagForm = () => {
       const newTag = {
         label: tagLabel,
       }
-      addTag(newTag)
-      // navigate("/TagList")
+      try {
+        addTag(newTag)
+        navigate("/tags")
+      } catch (error) {
+        console.error("Error:", error)
+      }
     } else {
       alert("Please fill in all fields before adding a tag.")
     }

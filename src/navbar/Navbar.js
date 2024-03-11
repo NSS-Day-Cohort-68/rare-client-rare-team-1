@@ -12,7 +12,7 @@ export const Navbar = () => {
         <br></br>
       </li>
       <li className="navbar-item">
-        <Link to="/new-tag">New Tag</Link>
+        <Link to="/tags">Tags</Link>
         <br></br>
       </li>
       <li className="navbar-item">
