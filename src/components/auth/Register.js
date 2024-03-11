@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { register_user } from "../../managers/userManager"
+import { login_user, register_user } from "../../managers/userManager"
 
 export const Register = () => {
   const navigate = useNavigate()
@@ -45,8 +45,15 @@ export const Register = () => {
     if (missingValues.length !== 0) {
       window.alert("Please fill out all fields before clicking Register.")
     } else {
-      register_user(userCopy).then(() => {
-        navigate("/")
+      login_user(userCopy["email"]).then((result) => {
+        if (result["valid"] === false) {
+          register_user(userCopy).then((res) => {
+            localStorage.setItem("rare_user", JSON.stringify(res))
+            navigate("/")
+          })
+        } else {
+          window.alert("Your email has already been registered.")
+        }
       })
     }
   }

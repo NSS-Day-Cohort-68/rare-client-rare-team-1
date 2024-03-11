@@ -11,6 +11,10 @@ export const Navbar = () => {
         <Link to="/categories">Categories</Link>
         <br></br>
       </li>
+      <li className="navbar-item">
+        <Link to="/tags">Tags</Link>
+        <br></br>
+      </li>
     </ul>
   )
 }
