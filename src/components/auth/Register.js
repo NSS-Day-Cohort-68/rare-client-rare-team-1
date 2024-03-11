@@ -1,9 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import {
-  check_for_duplicate_email,
-  register_user,
-} from "../../managers/userManager"
+import { login_user, register_user } from "../../managers/userManager"
 
 export const Register = () => {
   const navigate = useNavigate()
@@ -48,9 +45,10 @@ export const Register = () => {
     if (missingValues.length !== 0) {
       window.alert("Please fill out all fields before clicking Register.")
     } else {
-      check_for_duplicate_email(userCopy["email"]).then((result) => {
-        if (result["email_exists"] === false) {
-          register_user(userCopy).then(() => {
+      login_user(userCopy["email"]).then((result) => {
+        if (result["valid"] === false) {
+          register_user(userCopy).then((res) => {
+            localStorage.setItem("rare_user", JSON.stringify(res))
             navigate("/")
           })
         } else {

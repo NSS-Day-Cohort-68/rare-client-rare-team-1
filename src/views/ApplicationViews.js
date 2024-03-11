@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react"
 import { Outlet, Route, Routes } from "react-router-dom"
 import { Categories } from "../components/categories/Categories"
 import { Welcome } from "../components/welcome/Welcome"
 import { CreateCategory } from "../components/categories/CreateCategory"
 import { NewTagForm } from "../components/tags/TagForm"
 import { Tags } from "../components/tags/Tags"
+import { Navbar } from "../navbar/Navbar"
 
 export const ApplicationViews = () => {
   return (
@@ -12,6 +14,7 @@ export const ApplicationViews = () => {
         path="/"
         element={
           <>
+            <Navbar />
             <Outlet />
           </>
         }

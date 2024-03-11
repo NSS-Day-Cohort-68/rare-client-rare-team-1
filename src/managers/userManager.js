@@ -11,7 +11,7 @@ export const register_user = async (user) => {
   return await response.json()
 }
 
-export const check_for_duplicate_email = async (email) => {
+export const login_user = async (email) => {
   const response = await fetch(`${apiURL}/users?email=${email}`)
   const token = await response.json()
   return token
