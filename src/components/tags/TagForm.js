@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { addTag } from "../../managers/tagManager"
 
 export const NewTagForm = () => {
-  const [tagLabel, setTagLabel] = useState([])
+  const [tagLabel, setTagLabel] = useState("")
 
   const navigate = useNavigate()
 
