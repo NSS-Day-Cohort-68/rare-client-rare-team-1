@@ -10,3 +10,9 @@ export const addTag = async (tag) => {
   const response = await fetch(`${apiURL}/tags`, postOptions)
   return await response.json()
 }
+
+export const getSortedTags = async () => {
+  const response = await fetch(`${apiURL}/tags`)
+  const alphabetizedTags = await response.json()
+  return alphabetizedTags
+}
