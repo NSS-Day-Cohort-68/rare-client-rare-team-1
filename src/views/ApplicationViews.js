@@ -6,6 +6,7 @@ import { CreateCategory } from "../components/categories/CreateCategory"
 import { NewTagForm } from "../components/tags/TagForm"
 import { Tags } from "../components/tags/Tags"
 import { Navbar } from "../navbar/Navbar"
+import { AllPosts } from "../components/posts/AllPosts"
 
 export const ApplicationViews = () => {
   return (
@@ -24,6 +25,7 @@ export const ApplicationViews = () => {
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="tags" element={<Tags />} />
         <Route path="new-tag" element={<NewTagForm />} />
+        <Route path="posts" element={<AllPosts />} />
       </Route>
     </Routes>
   )
