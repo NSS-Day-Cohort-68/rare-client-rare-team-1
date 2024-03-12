@@ -20,7 +20,7 @@ export const ApplicationViews = () => {
         }
       >
         <Route index element={<Welcome />} />
-        <Route path="categories" element={<Categories />} />
+        <Route path="category-management" element={<Categories />} />
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="tags" element={<Tags />} />
         <Route path="new-tag" element={<NewTagForm />} />

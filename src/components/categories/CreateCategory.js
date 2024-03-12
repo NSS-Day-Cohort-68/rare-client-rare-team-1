@@ -20,7 +20,7 @@ export const CreateCategory = () => {
       });
 
       if (response.ok) {
-        navigate("/categories");
+        navigate("/category-management");
       } else {
         console.error('Error creating category');
       }
