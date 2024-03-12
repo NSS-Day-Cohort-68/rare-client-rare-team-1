@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { getAllPosts } from "../../managers/postManager"
 import "./Posts.css"
 
 export const AllPosts = () => {
+  const navigate = useNavigate()
+
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -11,7 +14,7 @@ export const AllPosts = () => {
 
   const dateOptions = {
     year: "numeric",
-    month: "short",
+    month: "numeric",
     day: "numeric",
   }
 
@@ -30,7 +33,13 @@ export const AllPosts = () => {
           <div className="list-column header-category">Category</div>
         </li>
         {posts.map((p) => (
-          <li key={`post-${p.id}`} className="post-list-item">
+          <li
+            key={`post-${p.id}`}
+            className="post-list-item"
+            onClick={() => {
+              navigate(`/posts/${p.id}`)
+            }}
+          >
             <div className="list-column item-title">{capitalized(p.title)}</div>
             <div className="list-column item-author">{p.user?.username}</div>
             <div className="list-column item-date">

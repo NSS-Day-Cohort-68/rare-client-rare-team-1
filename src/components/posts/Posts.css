@@ -8,6 +8,12 @@
 .post-list-item {
   display: flex;
   justify-content: space-between;
+  padding: 5px;
+}
+
+.post-list-item:hover {
+  background-color: lightgray;
+  cursor: pointer;
 }
 
 .post-list-header {
