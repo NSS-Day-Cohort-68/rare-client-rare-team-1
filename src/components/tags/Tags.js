@@ -7,6 +7,7 @@ export const Tags = () => {
   const navigate = useNavigate()
 
   const [tags, setTags] = useState([])
+  const [updatedTags, setUpdatedTags] = useState([])
 
   const handleClick = () => {
     navigate("/new-tag")
@@ -16,12 +17,16 @@ export const Tags = () => {
     getSortedTags().then((res) => setTags(res))
   }, [])
 
+  useEffect(() => {
+    getSortedTags().then((res) => setUpdatedTags(res))
+  }, [tags])
+
   return (
     <div className="tags-global-container">
       <div className="tag-list-container">
         <h2>Tags</h2>
         <ul className="tag-list">
-          {tags.map((t) => (
+          {updatedTags.map((t) => (
             <div key={`tag-${t.id}`} className="tag-item">
               <li className="tag-label">{t.label}</li>
             </div>
