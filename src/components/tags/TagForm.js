@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { addTag } from "../../managers/tagManager"
 
 export const NewTagForm = () => {
-  const [tagLabel, setTagLabel] = useState([])
+  const [tagLabel, setTagLabel] = useState("")
 
   const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ export const NewTagForm = () => {
   return (
     <div className="tag-form container">
       <h2>New Tag</h2>
-      <form>
+      <form onSubmit={handleAddTag}>
         <label>Tag Label: </label>
         <input
           type="text"
@@ -38,7 +38,7 @@ export const NewTagForm = () => {
           value={tagLabel}
           onChange={handleFormChange}
         />
-        <button onClick={handleAddTag}>Add Tag</button>
+        <button type="submit" disabled={!tagLabel.trim()}>Add Tag</button>
       </form>
     </div>
   )

@@ -1,0 +1,27 @@
+.tags-global-container {
+  display: flex;
+}
+
+.tag-list-container {
+  flex-basis: 500px;
+  margin: 20px auto;
+}
+
+.tag-form-container {
+  flex-basis: 200px;
+  height: 200px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px black solid;
+  border-radius: 20px;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-item {
+  display: flex;
+  padding: 5px;
+}

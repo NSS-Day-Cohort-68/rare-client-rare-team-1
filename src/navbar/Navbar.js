@@ -15,6 +15,10 @@ export const Navbar = () => {
         <Link to="/tags">Tags</Link>
         <br></br>
       </li>
+      <li className="navbar-item">
+        <Link to="/logout">Logout</Link>
+        <br></br>
+      </li>
     </ul>
   )
 }
