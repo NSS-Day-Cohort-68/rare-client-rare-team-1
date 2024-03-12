@@ -28,7 +28,7 @@ export const Tags = () => {
           ))}
         </ul>
       </div>
-      <div className="btn-container">
+      <div className="tag-form-container">
         <h2>Create a New Tag</h2>
         <button onClick={handleClick}>New Tag</button>
       </div>
