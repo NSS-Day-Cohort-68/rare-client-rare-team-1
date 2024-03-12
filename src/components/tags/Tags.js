@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { getSortedTags } from "../../managers/tagManager"
-import { NewTagForm } from "./TagForm"
 import "./Tags.css"
 
 export const Tags = () => {
+  const navigate = useNavigate()
+
   const [tags, setTags] = useState([])
+
+  const handleClick = () => {
+    navigate("/new-tag")
+  }
 
   useEffect(() => {
     getSortedTags().then((res) => setTags(res))
@@ -22,8 +28,9 @@ export const Tags = () => {
           ))}
         </ul>
       </div>
-      <div className="tag-form-container">
-        <NewTagForm />
+      <div className="btn-container">
+        <h2>Create a New Tag</h2>
+        <button onClick={handleClick}>New Tag</button>
       </div>
     </div>
   )
