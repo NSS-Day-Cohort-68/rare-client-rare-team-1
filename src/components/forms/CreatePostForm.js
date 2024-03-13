@@ -34,7 +34,7 @@ export const CreatePostForm = () => {
   };
 
   const handleCategorySelect = (e) => {
-    setPost({ ...post, category: e.target.value });
+    setPost({ ...post, category: parseInt(e.target.value) });
   };
 
   const handlePublish = (e) => {
@@ -87,8 +87,8 @@ export const CreatePostForm = () => {
                 type="text"
                 className="form-control"
                 placeholder="Image URL"
-                name="imageURL"
-                value={post.imageURL}
+                name="image_url"
+                value={post.image_url}
                 onChange={handleInputChange}
                 style={{
                   width: "200px",
@@ -129,7 +129,7 @@ export const CreatePostForm = () => {
                       key={`category--${category.id}`}
                       value={category.id}
                     >
-                      {category.name}
+                      {category.label}
                     </option>
                   );
                 })}
