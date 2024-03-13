@@ -10,6 +10,15 @@ import { Logout } from "../components/auth/Logout";
 import { CreatePostForm } from "../components/forms/CreatePostForm.js";
 
 export const ApplicationViews = () => {
+  const [currentUser, setCurrentUser] = useState({})
+
+  useEffect(() => {
+    const localRareUser = JSON.parse(localStorage.getItem("rare_user"))
+    if (localRareUser) {
+      setCurrentUser(localRareUser)
+    }
+  }, [])
+
   return (
     <Routes>
       <Route

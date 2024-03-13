@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { getCategories } from "../../managers/categoryManager.js";
 import { addPost } from "../../managers/postManager.js";
 
-export const CreatePostForm = () => {
+export const CreatePostForm = (currentUser) => {
   const [post, setPost] = useState({
-    user_id: 0,
+    user_id: currentUser.id,
     category_id: 0,
     title: "",
     publicationDate: new Date().toISOString().slice(0, 10),
