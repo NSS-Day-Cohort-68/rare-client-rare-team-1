@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import "./Navbar.css"
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 export const Navbar = () => {
   return (
@@ -19,6 +19,9 @@ export const Navbar = () => {
         <Link to="/logout">Logout</Link>
         <br></br>
       </li>
+      <li className="navbar-item">
+        <Link to="/create-post">Add Post</Link>
+      </li>
     </ul>
-  )
-}
+  );
+};
