@@ -21,7 +21,7 @@ export const Login = () => {
 
   return (
     <div className="login-container">
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleLogin}>
         <h2 className="form-heading">Login</h2>
         <fieldset className="form-item">
           <label htmlFor="email-input">Email: </label>
@@ -36,7 +36,7 @@ export const Login = () => {
           />
         </fieldset>
         <fieldset className="form-btn">
-          <button className="login-btn" onClick={handleLogin}>
+          <button className="login-btn" type="submit" disabled={!email.trim()}>
             Login
           </button>
         </fieldset>
