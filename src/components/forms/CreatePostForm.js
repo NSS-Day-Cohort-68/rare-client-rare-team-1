@@ -22,7 +22,9 @@ export const CreatePostForm = () => {
   // handlePublish to handle storing object permanently in api
 
   useEffect(() => {
-    getCategories().then(setCategories);
+    getCategories().then((res) => {
+      setCategories(res);
+    });
     console.log(categories);
   }, []);
 
