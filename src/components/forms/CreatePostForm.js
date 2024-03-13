@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { CategorySelectDropdown } from "../post/Category.js";
 import { getCategories } from "../../managers/categoryManager.js";
 import { addPost } from "../../managers/postManager.js";
 
@@ -11,21 +10,14 @@ export const CreatePostForm = () => {
     publicationDate: new Date().toISOString().slice(0, 10),
     image_url: "",
     content: "",
-    approved: 0,
+    approved: 1,
   });
   const [categories, setCategories] = useState([]);
-
-  // useEffect to fetch categories from api via service/manager
-  // store fetched categories using setCategories
-  // inside form render a dropdown menu using <select> and map through categories using <option> tag for each category with value (of  & key/value pair) being ID
-  // handleCategorySelect to store selected category
-  // handlePublish to handle storing object permanently in api
 
   useEffect(() => {
     getCategories().then((res) => {
       setCategories(res);
     });
-    console.log(categories);
   }, []);
 
   const handleInputChange = (e) => {
@@ -34,7 +26,7 @@ export const CreatePostForm = () => {
   };
 
   const handleCategorySelect = (e) => {
-    setPost({ ...post, category: parseInt(e.target.value) });
+    setPost({ ...post, category_id: parseInt(e.target.value) });
   };
 
   const handlePublish = (e) => {
