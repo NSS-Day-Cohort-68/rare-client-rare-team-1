@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { getCategories } from "../../managers/categoryManager.js";
 import { addPost } from "../../managers/postManager.js";
 
-export const CreatePostForm = (currentUser) => {
+export const CreatePostForm = ({ currentUser }) => {
   const [post, setPost] = useState({
-    user_id: currentUser.id,
+    user_id: currentUser.token,
     category_id: 0,
     title: "",
     publicationDate: new Date().toISOString().slice(0, 10),
@@ -31,9 +31,7 @@ export const CreatePostForm = (currentUser) => {
 
   const handlePublish = (e) => {
     e.preventDefault();
-    addPost(post).then(() => {
-      console.log(post);
-    });
+    addPost(post).then(() => {});
   };
 
   if (categories.length === -1) {
@@ -115,10 +113,10 @@ export const CreatePostForm = (currentUser) => {
             <div className="form-group">
               <select onChange={handleCategorySelect}>
                 <option>Category Select</option>
-                {categories.map((category) => {
+                {categories.map((category, index) => {
                   return (
                     <option
-                      key={`category--${category.id}`}
+                      key={`category--${category.id || index}`}
                       value={category.id}
                     >
                       {category.label}

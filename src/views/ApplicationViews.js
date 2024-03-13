@@ -10,14 +10,14 @@ import { Logout } from "../components/auth/Logout";
 import { CreatePostForm } from "../components/forms/CreatePostForm.js";
 
 export const ApplicationViews = () => {
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    const localRareUser = JSON.parse(localStorage.getItem("rare_user"))
+    const localRareUser = JSON.parse(localStorage.getItem("rare_user"));
     if (localRareUser) {
-      setCurrentUser(localRareUser)
+      setCurrentUser(localRareUser);
     }
-  }, [])
+  }, []);
 
   return (
     <Routes>
@@ -36,7 +36,10 @@ export const ApplicationViews = () => {
         <Route path="tags" element={<Tags />} />
         <Route path="new-tag" element={<NewTagForm />} />
         <Route path="logout" element={<Logout />} />
-        <Route path="create-post" element={<CreatePostForm />} />
+        <Route
+          path="create-post"
+          element={<CreatePostForm currentUser={currentUser} />}
+        />
       </Route>
     </Routes>
   );
