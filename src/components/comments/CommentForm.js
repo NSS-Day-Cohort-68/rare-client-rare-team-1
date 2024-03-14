@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { addComment } from "../../managers/commentManager"
 
 export const NewCommentForm = ({ currentUser, currentPostId }) => {
   const [content, setContent] = useState("")
@@ -18,6 +19,7 @@ export const NewCommentForm = ({ currentUser, currentPostId }) => {
         content: content,
       }
       try {
+        addComment(newComment)
         navigate(`/posts/${currentPostId}`)
       } catch (error) {
         console.error("Error:", error)
@@ -31,7 +33,7 @@ export const NewCommentForm = ({ currentUser, currentPostId }) => {
     <div className="comment-form container">
       <h2>New Comment</h2>
       <form>
-        <label>Tag Label: </label>
+        <label>Content: </label>
         <input
           type="text"
           placeholder="Comment..."
