@@ -12,12 +12,6 @@ export const AllPosts = () => {
     getAllPosts().then((res) => setPosts(res))
   }, [])
 
-  const dateOptions = {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-  }
-
   const capitalized = (phrase) => {
     return phrase.charAt(0).toUpperCase() + phrase.slice(1)
   }
@@ -29,7 +23,6 @@ export const AllPosts = () => {
         <li className="post-list-header">
           <div className="list-column header-title">Title</div>
           <div className="list-column header-author">Author</div>
-          <div className="list-column header-date">Date</div>
           <div className="list-column header-category">Category</div>
         </li>
         {posts.map((p) => (
@@ -42,12 +35,6 @@ export const AllPosts = () => {
           >
             <div className="list-column item-title">{capitalized(p.title)}</div>
             <div className="list-column item-author">{p.user?.username}</div>
-            <div className="list-column item-date">
-              {new Date(p.publication_date).toLocaleString(
-                "en-us",
-                dateOptions
-              )}
-            </div>
             <div className="list-column item-category">
               {p.category.label ? capitalized(p.category.label) : ""}
             </div>
