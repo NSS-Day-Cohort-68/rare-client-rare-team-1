@@ -1,0 +1,25 @@
+.post-list {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.post-list-header,
+.post-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.post-list-item:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.post-list-header {
+  font-weight: 700;
+}
+
+.list-column {
+  flex-basis: 30%;
+}

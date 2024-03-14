@@ -8,11 +8,14 @@ export const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li className="navbar-item">
+        <Link to="/posts">Posts</Link>
+      </li>
+      <li className="navbar-item">
         <Link to="/category-management">Category Management</Link>
         <br></br>
       </li>
       <li className="navbar-item">
-        <Link to="/tags">Tags</Link>
+        <Link to="/tags">Tag Management</Link>
         <br></br>
       </li>
       <li className="navbar-item">

@@ -8,6 +8,7 @@ import { Tags } from "../components/tags/Tags"
 import { Navbar } from "../navbar/Navbar"
 import { Logout } from "../components/auth/Logout"
 import { CreatePostForm } from "../components/forms/CreatePostForm.js"
+import { AllPosts } from "../components/posts/AllPosts"
 import { NewCommentForm } from "../components/comments/CommentForm.js"
 
 export const ApplicationViews = () => {
@@ -51,6 +52,7 @@ export const ApplicationViews = () => {
             />
           }
         />
+        <Route path="posts" element={<AllPosts />} />
       </Route>
     </Routes>
   )
