@@ -5,3 +5,18 @@ export const getAllPosts = async () => {
   const posts = await response.json()
   return posts
 }
+
+export const addPost = async (post) => {
+  const postOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(post),
+  }
+
+  const response = await fetch(`${apiURL}/posts`, postOptions)
+  return await response.json()
+}
+
+export const getPosts = () => {
+  return fetch(`${apiURL}/`)
+}
