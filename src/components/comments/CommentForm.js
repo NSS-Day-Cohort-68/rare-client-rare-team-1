@@ -25,7 +25,7 @@ export const NewCommentForm = ({ currentUser, currentPostId }) => {
         console.error("Error:", error)
       }
     } else {
-      alert("Please fill in all fields before adding a tag.")
+      alert("Please fill in all fields before adding a comment.")
     }
   }
 

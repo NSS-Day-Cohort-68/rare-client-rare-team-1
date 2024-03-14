@@ -43,6 +43,7 @@ export const ApplicationViews = () => {
           path="create-post"
           element={<CreatePostForm currentUser={currentUser} />}
         />
+        <Route path="posts" element={<AllPosts />} />
         <Route
           path="create-comment"
           element={
@@ -52,7 +53,6 @@ export const ApplicationViews = () => {
             />
           }
         />
-        <Route path="posts" element={<AllPosts />} />
       </Route>
     </Routes>
   )
