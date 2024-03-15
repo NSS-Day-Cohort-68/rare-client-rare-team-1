@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react"
-import { Outlet, Route, Routes } from "react-router-dom"
-import { Categories } from "../components/categories/Categories"
-import { Welcome } from "../components/welcome/Welcome"
-import { CreateCategory } from "../components/categories/CreateCategory"
-import { NewTagForm } from "../components/tags/TagForm"
-import { Tags } from "../components/tags/Tags"
-import { Navbar } from "../navbar/Navbar"
-import { Logout } from "../components/auth/Logout"
-import { CreatePostForm } from "../components/forms/CreatePostForm.js"
-import { AllPosts } from "../components/posts/AllPosts"
+import { useEffect, useState } from "react";
+import { Outlet, Route, Routes } from "react-router-dom";
+import { Categories } from "../components/categories/Categories";
+import { Welcome } from "../components/welcome/Welcome";
+import { CreateCategory } from "../components/categories/CreateCategory";
+import { NewTagForm } from "../components/tags/TagForm";
+import { Tags } from "../components/tags/Tags";
+import { Navbar } from "../navbar/Navbar";
+import { Logout } from "../components/auth/Logout";
+import { CreatePostForm } from "../components/forms/CreatePostForm.js";
+import { AllPosts } from "../components/posts/AllPosts";
+import { PostTag } from "../components/tags/PostTag.js";
 
 export const ApplicationViews = () => {
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentPostId, setCurrentPostId] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    const localRareUser = JSON.parse(localStorage.getItem("rare_user"))
+    const localRareUser = JSON.parse(localStorage.getItem("rare_user"));
     if (localRareUser) {
-      setCurrentUser(localRareUser)
+      setCurrentUser(localRareUser);
     }
-  }, [])
+  }, []);
 
   return (
     <Routes>
@@ -42,7 +44,11 @@ export const ApplicationViews = () => {
           element={<CreatePostForm currentUser={currentUser} />}
         />
         <Route path="posts" element={<AllPosts />} />
+        <Route
+          path="posttags"
+          element={<PostTag currentPostId={currentPostId} />}
+        />
       </Route>
     </Routes>
-  )
-}
+  );
+};
