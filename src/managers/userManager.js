@@ -13,6 +13,6 @@ export const register_user = async (user) => {
 
 export const login_user = async (email) => {
   const response = await fetch(`${apiURL}/users?email=${email}`)
-  const data = await response.json()
-  return data
+  const token = await response.json()
+  return token
 }
