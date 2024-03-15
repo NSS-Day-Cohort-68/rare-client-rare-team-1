@@ -44,6 +44,19 @@ export const ApplicationViews = () => {
           path="create-post"
           element={<CreatePostForm currentUser={currentUser} />}
         />
+        <Route
+          path="post-details/:postId"
+          element={<PostDetails setCurrentPostId={setCurrentPostId} />}
+        />
+        <Route
+          path="create-comment"
+          element={
+            <NewCommentForm
+              currentUser={currentUser}
+              currentPostId={currentPostId}
+            />
+          }
+        />
         <Route path="posts" element={<AllPosts />} />
       </Route>
     </Routes>
