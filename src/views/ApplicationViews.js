@@ -9,9 +9,11 @@ import { Navbar } from "../navbar/Navbar"
 import { Logout } from "../components/auth/Logout"
 import { CreatePostForm } from "../components/forms/CreatePostForm.js"
 import { AllPosts } from "../components/posts/AllPosts"
+import { NewCommentForm } from "../components/comments/CommentForm.js"
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({})
+  const [currentPostId, setCurrentPostId] = useState({})
 
   useEffect(() => {
     const localRareUser = JSON.parse(localStorage.getItem("rare_user"))
@@ -42,6 +44,15 @@ export const ApplicationViews = () => {
           element={<CreatePostForm currentUser={currentUser} />}
         />
         <Route path="posts" element={<AllPosts />} />
+        <Route
+          path="create-comment"
+          element={
+            <NewCommentForm
+              currentUser={currentUser}
+              currentPostId={currentPostId}
+            />
+          }
+        />
       </Route>
     </Routes>
   )
