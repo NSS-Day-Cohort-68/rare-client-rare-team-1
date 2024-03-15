@@ -20,3 +20,8 @@ export const addPost = async (post) => {
 export const getPosts = () => {
   return fetch(`${apiURL}/`)
 }
+
+export const getPost = (postId) => {
+  return fetch(`${apiURL}/posts/${postId}`)
+    .then(response => response.json())
+}
