@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getAllPosts } from "../../managers/postManager"
 import "./Posts.css"
+import { Link } from "react-router-dom"
 
 export const AllPosts = () => {
   const [posts, setPosts] = useState([])
@@ -23,13 +24,15 @@ export const AllPosts = () => {
           <div className="list-column header-category">Category</div>
         </li>
         {posts.map((p) => (
-          <li key={`post-${p.id}`} className="post-list-item">
-            <div className="list-column item-title">{capitalized(p.title)}</div>
-            <div className="list-column item-author">{p.user?.username}</div>
-            <div className="list-column item-category">
-              {p.category.label ? capitalized(p.category.label) : ""}
-            </div>
-          </li>
+          <Link to={`/post-details/${p.id}`} className="post-link" key={`post-${p.id}`}>
+            <li key={`post-${p.id}`} className="post-list-item">
+              <div className="list-column item-title">{capitalized(p.title)}</div>
+              <div className="list-column item-author">{p.user?.username}</div>
+              <div className="list-column item-category">
+                {p.category.label ? capitalized(p.category.label) : ""}
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
