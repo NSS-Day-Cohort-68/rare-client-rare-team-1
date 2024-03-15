@@ -14,7 +14,7 @@ import { PostDetails } from "../components/posts/PostDetails.js"
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({})
-  const [currentPostId, setCurrentPostId] = useState({})
+  const [currentPostId, setCurrentPostId] = useState(0)
 
   useEffect(() => {
     const localRareUser = JSON.parse(localStorage.getItem("rare_user"))
@@ -44,9 +44,12 @@ export const ApplicationViews = () => {
           path="create-post"
           element={<CreatePostForm currentUser={currentUser} />}
         />
-        <Route path="posts" element={<AllPosts />} /> 
-        <Route path="post-details/:postId" element={<PostDetails />} />
-         
+        <Route path="posts" element={<AllPosts />} />
+        <Route
+          path="post-details/:postId"
+          element={<PostDetails setCurrentPostId={setCurrentPostId} />}
+        />
+
         <Route
           path="create-comment"
           element={
@@ -54,8 +57,7 @@ export const ApplicationViews = () => {
               currentUser={currentUser}
               currentPostId={currentPostId}
             />
-           } 
-          
+          }
         />
       </Route>
     </Routes>

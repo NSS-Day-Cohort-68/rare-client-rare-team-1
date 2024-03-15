@@ -20,7 +20,7 @@ export const NewCommentForm = ({ currentUser, currentPostId }) => {
       }
       try {
         addComment(newComment)
-        navigate(`/posts/${currentPostId}`)
+        navigate(`/post-details/${currentPostId}`)
       } catch (error) {
         console.error("Error:", error)
       }
